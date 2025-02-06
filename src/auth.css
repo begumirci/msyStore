@@ -1,0 +1,198 @@
+:root {
+  --colorBordo: #7c1034;
+  --colorBlue: #f9f9f9;
+}
+
+.auth-form .form {
+  background-color: #fff;
+  display: block;
+  padding: 1rem;
+  max-width: 350px;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  margin: auto;
+  margin-top: 30px;
+}
+
+.form-title {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--colorBordo);
+}
+
+.stockyok {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-bottom: 6px solid rgba(0, 0, 0, 0.5);
+  width: 100%;
+  color: var(--colorBlue);
+  text-align: center;
+  text-transform: uppercase;
+  padding-top: 50%;
+  font-weight: bold;
+}
+
+.card:has(.stockyok) {
+  pointer-events: none;
+}
+
+.input-container {
+  position: relative;
+}
+
+.input-container input,
+.form button {
+  outline: none;
+  border: 1px solid #e5e7eb;
+  margin: 8px 0;
+}
+
+.input-container input {
+  background-color: #fff;
+  padding: 1rem;
+  padding-right: 3rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  width: 300px;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.submit {
+  display: block;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  background-color: var(--colorBordo);
+  color: var(--colorBlue);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  width: 100%;
+  border-radius: 0.5rem;
+  text-transform: uppercase;
+}
+
+.signup-link {
+  color: var(--colorBlue);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  text-align: center;
+}
+
+.signup-link a {
+  text-decoration: underline;
+}
+
+.user span {
+  color: var(--colorBordo);
+}
+
+.user {
+  margin-block: 20px;
+}
+.card {
+  position: relative;
+}
+.del {
+  color: var(--colorBordo);
+  right: 10px;
+  font-weight: bold;
+}
+
+:root {
+  --pink: #6b7280;
+  --purple: #171717;
+  --light-purple: #4b5563;
+  --btn: #333333;
+  --bordo: #7f1d1d;
+}
+
+.addForm {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  margin: auto;
+  max-width: 500px;
+}
+
+.addForm input {
+  padding: 10px;
+  border-radius: 4px;
+  outline: none;
+  border-color: rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+.addForm select {
+  padding: 10px;
+  border-radius: 4px;
+  outline: none;
+  border-color: rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+.addForm button {
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  transition: 0.2s ease-in-out;
+
+  &:hover {
+    background-color: var(--bordo);
+    color: white;
+  }
+}
+
+.addFormHeader {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.edit-side {
+  display: flex;
+  gap: 5px;
+  font-size: 20px;
+  justify-content: right;
+}
+
+.fix-product {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  padding-inline: 30px;
+  border-radius: 4px;
+  position: absolute;
+
+  top: 20%;
+  z-index: 1000;
+}
+
+.fix-product input {
+  padding: 12px;
+}
+
+.fix-product .buttons {
+  display: flex;
+  margin-top: 12px;
+  gap: 8px;
+  width: 100%;
+}
+
+.fix-product button {
+  padding: 8px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.fixed {
+  margin-top: 50px;
+}

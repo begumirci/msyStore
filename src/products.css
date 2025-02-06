@@ -1,0 +1,521 @@
+:root {
+  --grey: rgba(0, 0, 0, 0.1);
+  --bordo: #7f1d1d;
+
+  --colorBordo: #7c1034;
+  --colorBlue: #f9f9f9;
+}
+
+.product-flex {
+  & .product-info {
+    & h1 {
+      color: #490e6f;
+      padding: 10px 5px;
+      font-family: Rokkitt;
+      font-size: 24px;
+      font-weight: 500;
+    }
+    & p {
+      margin-block: 10px;
+      margin-bottom: 25px;
+    }
+  }
+}
+
+.product-items {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
+}
+.product {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+
+  margin-bottom: 15px;
+
+  .decrease-increase {
+    margin-top: 20px;
+    span {
+      width: 30px;
+      height: 30px;
+      color: var(--colorBlue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  button {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 22px;
+    font-weight: 500;
+  }
+}
+
+.product-img {
+  padding: 4px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  max-width: 300px;
+  max-height: 300px;
+  object-fit: contain;
+  margin: 0 auto;
+  align-self: center;
+}
+
+.deneme {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.menu {
+  margin: 0 !important;
+}
+
+.decrease-increase {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-weight: bold;
+  color: var(--colorBordo);
+
+  & span:hover {
+    background-color: var(--colorBlue);
+    color: var(--colorBordo);
+  }
+
+  & span {
+    background-color: var(--colorBordo);
+    padding-inline: 7px;
+    border-radius: 4px;
+    color: var(--colorBordo);
+    align-items: center;
+    cursor: pointer;
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Arkaplan karartma */
+  z-index: 2; /* Modaldan hemen önce gelir */
+  pointer-events: auto; /* Tıklama olaylarını yakalar */
+}
+
+.product-item {
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn {
+    padding-inline: 15px;
+    margin-block: 20px;
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 12px;
+    margin-bottom: 3px;
+    font-weight: 500;
+    line-height: 1.29;
+    color: #333;
+    min-height: 36px;
+    margin-block: 15px;
+    margin-bottom: 25px;
+  }
+  h2 {
+    font-family: Rokkitt;
+    font-size: 20px;
+    font-weight: 800;
+    color: #2b2c3f;
+    position: relative;
+
+    span {
+      font-family: Rokkitt;
+      position: absolute;
+      top: 0px;
+      font-size: 14px;
+      right: -18px;
+      color: #a4a1a1;
+      font-weight: 100;
+    }
+  }
+
+  img {
+    width: 135px;
+    height: 135px;
+  }
+}
+
+.btn {
+  border-radius: 10px;
+  border: none;
+  width: 100%;
+  color: var(--colorBlue);
+  padding-block: 12px;
+  padding-inline: 20px;
+  font-weight: 800;
+  cursor: pointer;
+  margin: auto;
+  background-color: var(--colorBordo);
+  font-size: 16px;
+  transition: all 250ms;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  margin-top: 20px;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: var(--colorBlue);
+  z-index: -1;
+  transition: all 400ms;
+}
+
+.btn:hover {
+  color: var(--colorBordo);
+}
+
+.btn:hover::before {
+  height: 100%;
+}
+.main-product {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.main-product h1 {
+  color: var(--colorBordo);
+  text-transform: capitalize;
+  font-weight: bold;
+}
+.card-header p {
+  color: var(--colorBordo);
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card-header {
+  text-transform: capitalize;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px; /* Kartlar arasındaki boşluk */
+}
+
+.stockyok {
+}
+
+.svg {
+  width: 50px;
+}
+
+.back {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-block: 15px;
+  font-weight: bold;
+}
+
+.back img {
+  width: 30px;
+}
+
+.back p {
+  color: var(--colorBordo);
+}
+
+.filter-page {
+  background-color: var(--colorBlue);
+  width: 75%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  z-index: 3;
+}
+
+.deneme span {
+  color: #666;
+}
+.name-brand {
+  color: var(--colorBordo);
+}
+.mobil-back {
+  margin-block: 20px;
+}
+
+.filter-mobil {
+  display: block;
+}
+
+.header-filter h4 {
+  font-weight: bold;
+}
+
+.filter-mobil .f-w .brands,
+.filter-mobil .f-w .header-filter {
+  width: 100% !important;
+  border: none;
+}
+.filter-mobil .f-w {
+  margin-top: 30px;
+}
+
+.filter-mobil .f-w div {
+  border: none;
+}
+
+.flex {
+  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.category-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.main-filter {
+  display: none;
+}
+
+.card-header {
+  padding-inline: 20px;
+  padding-top: 10px;
+}
+
+.card-price {
+  margin-top: auto;
+  font-weight: bold;
+  font-size: 18px;
+  background-color: var(--colorBordo);
+  color: var(--colorBlue);
+  padding: 12px;
+
+  border-bottom: 8px solid transparent;
+  text-align: center;
+}
+
+.detail-card {
+  max-width: 400px;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.01);
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  margin-top: 100px;
+  justify-content: center;
+}
+
+.detail-card button {
+  margin-top: 20px;
+}
+
+.detail-name {
+  margin-bottom: 10px;
+}
+
+.back-side {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  color: var(--bordo);
+  font-weight: bold;
+  margin-block: 20px;
+}
+
+.card-buttons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.card {
+  border-bottom: 10px solid transparent;
+  transition: 0.1s ease-in-out;
+}
+
+.card:hover {
+  border-color: var(--bordo);
+}
+
+.basket-img {
+  position: relative;
+}
+.counter {
+  position: absolute;
+  right: -10px;
+  bottom: 10px;
+  background-color: var(--bordo);
+  color: white;
+  padding-inline: 7px;
+  border-radius: 100px;
+}
+
+.record-tarafi,
+.record-tarafi-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  padding-inline: 12px;
+}
+
+.record-tarafi-header {
+  color: var(--bordo);
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.record-tarafi {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-block: 12px;
+}
+
+.edit-side {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: right;
+}
+
+.fix-product {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  padding-inline: 30px;
+  border-radius: 4px;
+  position: absolute;
+
+  top: 20%;
+  z-index: 1000;
+}
+.fix-product h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.fix-product input {
+  padding: 12px;
+  border-radius: 4px;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.fix-product .buttons {
+  display: flex;
+  margin-top: 12px;
+  gap: 8px;
+  width: 100%;
+}
+
+.fix-product button {
+  padding: 8px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: var(--bordo);
+  font-weight: bold;
+}
+
+.add-side {
+  display: flex;
+  gap: 22px;
+  font-weight: bold;
+}
+
+.add-side a:hover {
+  color: var(--bordo);
+}
+
+.add-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.add-form input {
+  padding: 12px;
+  border-radius: 7px;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.add-card {
+  width: 400px;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.01);
+  padding: 15px;
+  margin-top: 100px;
+}
+
+.add-card h2 {
+  text-align: center;
+  margin-block: 20px;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.header,
+.homme {
+  padding-inline: 20px;
+}
+
+.basket-side {
+  margin: auto;
+}
+
+.add-side a {
+  color: grey;
+}
+
+.fixed-btns {
+  opacity: 0;
+}

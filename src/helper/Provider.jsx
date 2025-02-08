@@ -52,6 +52,7 @@ export default function Provider({ children }) {
         updatedData.push({
           name: newItem.name,
           quantity: newItem.quantity,
+          single_price: newItem.price,
           price: newItem.price * newItem.quantity,
           gelis_fiyati: newItem.gelis_fiyati,
           category: newItem.main_category,
@@ -213,6 +214,9 @@ export default function Provider({ children }) {
         user,
         setUser,
         setProducts,
+        setCategories,
+        setSizes,
+        setSubCategories,
       }}
     >
       {children}

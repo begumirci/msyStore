@@ -20,7 +20,7 @@ export default function Headers() {
         <div className='add-side'>
           <Link to='/kategoriekle'>Kategori Ekle</Link>
           <Link to='/altkategoriekle'>Alt Kategori Ekle</Link>
-          <Link to='/markaekle'>Marka Ekle</Link>
+
           <Link to='/bedenekle'>Beden Ekle</Link>
         </div>
       )}

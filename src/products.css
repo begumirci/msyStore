@@ -395,7 +395,7 @@
 .record-tarafi,
 .record-tarafi-header {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   padding-inline: 12px;
 }
 
@@ -487,11 +487,8 @@
 }
 
 .add-card {
-  width: 400px;
-  margin: auto;
   background-color: rgba(0, 0, 0, 0.01);
   padding: 15px;
-  margin-top: 100px;
 }
 
 .add-card h2 {
@@ -500,7 +497,7 @@
 }
 
 .capitalize {
-  text-transform: capitalize;
+  text-transform: uppercase;
 }
 
 .header,
@@ -518,4 +515,34 @@
 
 .fixed-btns {
   opacity: 0;
+}
+
+.all-add-side {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: 80px;
+}
+
+.urun-list {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.urun-list-item {
+  width: 200px;
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  gap: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 12px;
+}
+
+.urun-list-item h3 {
+  cursor: pointer;
+}
+
+.urun-list-item:hover {
+  background-color: white;
 }

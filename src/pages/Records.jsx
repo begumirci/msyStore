@@ -12,9 +12,18 @@ export default function Records() {
   }, []);
 
   function calculateDailyTotal(sales) {
-    return sales.reduce((total, sale) => total + sale.price, 0);
+    return sales.reduce(
+      (total, sale) => total + sale.single_price * sale.quantity,
+      0
+    );
   }
-
+  function calculateDailyNetProfit(sales) {
+    return sales.reduce(
+      (total, sale) =>
+        total + sale.quantity * (sale.single_price - sale.gelis_fiyati),
+      0
+    );
+  }
   function delEverything() {
     localStorage.removeItem('dailySales');
   }
@@ -39,15 +48,24 @@ export default function Records() {
                 <div className='record-tarafi-header'>
                   <p>Adet</p>
                   <p>İsim</p>
+                  <p>Birim Fiyat</p>
                   <p>Fiyat</p>
                   <p>Marka</p>
                   <p>Cinsiyet</p>
+
                   <p>Geliş Fiyatı</p>
+                  <p>Kar</p>
                 </div>
                 {sales.map((sale, index) => (
                   <div key={index} className='record-tarafi'>
                     <p>{sale.quantity}x</p>
                     <p>{sale.name}</p>
+                    <p>
+                      {new Intl.NumberFormat('tr-TR', {
+                        style: 'currency',
+                        currency: 'TRY',
+                      }).format(sale.single_price)}
+                    </p>
                     <p>
                       {new Intl.NumberFormat('tr-TR', {
                         style: 'currency',
@@ -63,6 +81,14 @@ export default function Records() {
                         currency: 'TRY',
                       }).format(sale.gelis_fiyati)}
                     </p>
+                    <p>
+                      {new Intl.NumberFormat('tr-TR', {
+                        style: 'currency',
+                        currency: 'TRY',
+                      }).format(
+                        sale.quantity * (sale.single_price - sale.gelis_fiyati)
+                      )}
+                    </p>
                   </div>
                 ))}
                 <h5 className='total-win'>
@@ -71,6 +97,13 @@ export default function Records() {
                     style: 'currency',
                     currency: 'TRY',
                   }).format(calculateDailyTotal(sales))}
+                </h5>
+                <h5 className='total-win'>
+                  Günlük Kar:{' '}
+                  {new Intl.NumberFormat('tr-TR', {
+                    style: 'currency',
+                    currency: 'TRY',
+                  }).format(calculateDailyNetProfit(sales))}
                 </h5>
               </div>
             ))}

@@ -1,16 +1,16 @@
-import React, { useContext } from 'react';
-import { useState } from 'react';
-
+import React, { useContext, useState } from 'react';
 import { supabase } from './helper/supabase';
-
 import { Contextim } from './helper/Provider';
 
 export default function Admin() {
   const { categories, sizes, brands, subCategories } = useContext(Contextim);
+  const [categoryId, setCategoryId] = useState('');
+
   const genders = [
     { id: 1, name: 'Kadın' },
     { id: 2, name: 'Erkek' },
   ];
+
   const [formData, setFormData] = useState({
     name: '',
     price: '',
@@ -25,12 +25,20 @@ export default function Admin() {
   });
 
   const handleChange = (e) => {
-    const { name, value, type } = e.target;
+    const { name, value } = e.target;
+
+    // Eğer kategori değişirse alt kategoriyi sıfırla
+    if (name === 'category') {
+      setCategoryId(value);
+      setFormData((prev) => ({ ...prev, subCategory: '' }));
+    }
+
     setFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
   };
+
   async function handleSubmit(e) {
     e.preventDefault();
     console.log('Form Verileri:', formData);
@@ -57,8 +65,25 @@ export default function Admin() {
       alert('Ürün Yüklenirken Hata Oluştu');
     } else {
       alert('Ürün Başarıyla Oluştu', data);
+      setFormData({
+        name: '',
+        price: '',
+        category: '',
+        size: '',
+        stock: '',
+        subCategory: '',
+        gelis_fiyati: '',
+        explanation: '',
+        gender: '',
+        brand: '',
+      });
     }
   }
+
+  // Seçilen kategoriye göre alt kategorileri filtrele
+  const filteredSubCategories = subCategories.filter(
+    (sub) => sub.main_category == categoryId
+  );
 
   return (
     <div>
@@ -68,11 +93,13 @@ export default function Admin() {
           type='text'
           placeholder='Ürün İsmi'
           name='name'
+          value={formData.name}
           onChange={handleChange}
         />
         <input
           type='text'
           name='explanation'
+          value={formData.explanation}
           placeholder='Ürün Açıklaması'
           onChange={handleChange}
         />
@@ -80,12 +107,16 @@ export default function Admin() {
           type='number'
           placeholder='Ürün Fiyatı'
           name='price'
+          value={formData.price}
           onChange={handleChange}
         />
-        <select name='gender' onChange={handleChange} required>
-          <option value='' disabled>
-            Cinsiyet Seçin
-          </option>
+        <select
+          name='gender'
+          onChange={handleChange}
+          required
+          value={formData.gender}
+        >
+          <option value=''>Cinsiyet Seçin</option>
           {genders.map((gender) => (
             <option key={gender.id} value={gender.name}>
               {gender.name}
@@ -96,9 +127,15 @@ export default function Admin() {
           type='text'
           placeholder='Ürün Stok'
           name='stock'
+          value={formData.stock}
           onChange={handleChange}
         />
-        <select name='size' required onChange={handleChange}>
+        <select
+          name='size'
+          required
+          onChange={handleChange}
+          value={formData.size}
+        >
           <option value='' required>
             Size
           </option>
@@ -109,30 +146,35 @@ export default function Admin() {
           ))}
         </select>
         <select name='category' required onChange={handleChange}>
-          <option value='' required>
-            Kategori
-          </option>
+          <option value=''>Kategori</option>
           {categories.map((category) => (
-            <option key={category.id} value={category.name}>
+            <option key={category.id} value={category.id}>
               {category.name}
             </option>
           ))}
         </select>
-        <select name='brand' required onChange={handleChange}>
-          <option value='' required>
-            Marka
-          </option>
+        <select
+          name='brand'
+          required
+          onChange={handleChange}
+          value={formData.brand}
+        >
+          <option value=''>Marka</option>
           {brands.map((brand) => (
             <option key={brand.id} value={brand.name}>
               {brand.name}
             </option>
           ))}
         </select>
-        <select name='subCategory' required onChange={handleChange}>
-          <option value='' required>
-            Alt Kategori
-          </option>
-          {subCategories.map((sub) => (
+        <select
+          name='subCategory'
+          required
+          value={formData.subCategory}
+          onChange={handleChange}
+          disabled={!categoryId} // Eğer kategori seçilmemişse alt kategori seçilemez
+        >
+          <option value=''>Alt Kategori</option>
+          {filteredSubCategories.map((sub) => (
             <option key={sub.id} value={sub.name}>
               {sub.name}
             </option>
@@ -141,6 +183,7 @@ export default function Admin() {
         <input
           type='text'
           name='gelis_fiyati'
+          value={formData.gelis_fiyati}
           placeholder='Geliş Fiyatı'
           onChange={handleChange}
         />
